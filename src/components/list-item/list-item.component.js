@@ -1,19 +1,34 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Text, View, StyleSheet, Button } from "react-native";
+import { showModal } from "../../redux/reducers/modals/last-visit/last-visit-action";
 
-const ListItem = ({ title, bell }) => (
-  <View style={styles.listItem}>
-    <View style={styles.titleContainer}>
-      <Text> {title} </Text>
+const ListItem = ({ item, bell, showLastVisit }) => {
+  const { name, update_date } = item;
+  const onPressHandler = () =>
+    showLastVisit({
+      name,
+      date: update_date
+    });
+
+  return (
+    <View style={styles.listItem}>
+      <View style={styles.titleContainer}>
+        <Text> {name} </Text>
+      </View>
+
+      <View style={styles.buttonContainer}>
+        <Button title={bell ? "bell" : " i "} onPress={onPressHandler} />
+      </View>
     </View>
+  );
+};
 
-    <View style={styles.buttonContainer}>
-      <Button title={bell ? "bell" : " i "} />
-    </View>
-  </View>
-);
+const mapDispatchToProps = dispatch => ({
+  showLastVisit: message => dispatch(showModal(message))
+});
 
-export default ListItem;
+export default connect(null, mapDispatchToProps)(ListItem);
 
 const styles = StyleSheet.create({
   listItem: {
