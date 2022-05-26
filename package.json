@@ -8,7 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@react-navigation/material-top-tabs": "^5.0.0-alpha.29",
+    "@react-navigation/material-top-tabs": "^5.3.19",
     "@react-navigation/native": "^5.0.0-alpha.28",
     "expo": "~36.0.0",
     "react": "~16.9.0",
