@@ -5,10 +5,12 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "dependencies": {
-    "@react-navigation/material-top-tabs": "^5.0.0-alpha.29",
+    "@react-navigation/material-top-tabs": "^5.0.0",
     "@react-navigation/native": "^5.0.0-alpha.28",
     "expo": "~36.0.0",
     "react": "~16.9.0",
@@ -24,11 +26,13 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.1.3",
-    "reselect": "^4.0.0"
+    "reselect": "^4.0.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "babel-preset-expo": "~8.0.0",
     "@babel/core": "^7.0.0"
   },
-  "private": true
+  "private": true,
+  "snyk": true
 }
